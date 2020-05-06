@@ -1,26 +1,25 @@
 body
 {
     background-image: url(../img/background.jpg);
-    background-size: cover;
-    background-position: center;
+  
+    background-position: fixed;
     image-rendering: smooth;
+    overflow: auto;
 }
 
-.container
+.container > #button3
 {
-    display: grid;
-    grid-template-rows: 1;
-    grid-template-columns: 3;
-    height: 100vh;
-    overflow: auto;
+    display: none;
+}
+
+.container 
+{
+    font-size: 1.5em;
 }
 
 .favorites
 {
-    grid-row: 1;
-    grid-column: 3;
-    border:2px solid yellow;
-    border-left: none;
+    display: none;
     color:yellow;
 }
 
@@ -32,21 +31,22 @@ h1
     text-align: center;
 }
 
+ul
+{
+    list-style-type: none;
+}
+
+li
+{
+    text-align: center;
+}
 
 .heros
 {
+    display: block;
     grid-row: 1;
     grid-column: 1;
-    border:2px solid yellow;
     color:yellow;
    
 }
 
-.planets
-{
-    grid-row: 1;
-    grid-column: 2;
-    border:2px solid yellow;
-    border-left: none;
-    color:yellow;
-}

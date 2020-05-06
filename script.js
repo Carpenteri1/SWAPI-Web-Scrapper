@@ -1,18 +1,47 @@
 const names = document.getElementById('names'); 
-const worlds = document.getElementById('worlds');
-const favoriteHero = document.querySelector('#faveHero');
-const favoriteWorld = document.querySelector('#faveWorld');
+const favorites = document.getElementById('worlds');
+const buttonOne = document.getElementById('button1');
+const buttonTwo = document.getElementById('button2');
+const buttonThree = document.getElementById('button3');
 
 const heroName = 'https://swapi.dev/api/people/';
-const heroWorld = 'https://swapi.dev/api/planets/';
 
 
-for (let step = 1; step <= 82; step++) 
+buttonOne.addEventListener('click',showFavorites)
+buttonTwo.addEventListener('click',loop)
+buttonThree.addEventListener('click',showFetchData)
+
+function loop()
 {
-   getName(step);
-   getPlanets(step); 
- 
+
+  for (let step = 1; step <= 82; step++) 
+  {
+     getName(step);
+   
+  }
+  
 }
+
+
+
+function showFetchData() 
+{
+  document.querySelector('.favorites').style.display = 'none';
+  document.querySelector('.heros').style.display='block';
+  document.querySelector('#button1').style.display='block';
+  document.querySelector('#button2').style.display="block";
+  document.querySelector('#button3').style.display='none';
+}
+
+function showFavorites() 
+{
+  document.querySelector('.favorites').style.display = 'block';
+  document.querySelector('.heros').style.display='none';
+  document.querySelector('#button1').style.display='none';
+  document.querySelector('#button2').style.display="none";
+  document.querySelector('#button3').style.display='block';
+}
+
 
 function getName(index)
 {
@@ -23,28 +52,9 @@ function getName(index)
 
     if(data.name != undefined)
     {
-      let childOfNames = document.createElement("li");
-      childOfNames.append(data.name);
-      names.append(childOfNames);
-    }
-  }).catch(function(error){
-    console.log(error);
-  })
-  
-}
-
-function getPlanets(index)
-{
-  fetch(heroWorld+index)
-  .then(resp => resp.json())
-  .then(function(data)
-  { 
-    console.log(data)
-    if(data.name != undefined)
-    {
-      let childOfWorld = document.createElement("li");
-      childOfWorld.append(data.name);
-      worlds.append(childOfWorld);
+            let childOfNames = document.createElement("li");
+            childOfNames.append(data.name);
+            names.append(childOfNames);
     }
   }).catch(function(error){
     console.log(error);
@@ -67,7 +77,5 @@ function AddFavorite()
   }
 
 }
-
 names.addEventListener('click',AddFavorite)
-worlds.addEventListener('click',AddFavorite)
 
