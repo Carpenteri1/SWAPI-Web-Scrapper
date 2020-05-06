@@ -1,0 +1,52 @@
+body
+{
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center;
+    image-rendering: smooth;
+}
+
+.container
+{
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: 3;
+    height: 100vh;
+    overflow: auto;
+}
+
+.favorites
+{
+    grid-row: 1;
+    grid-column: 3;
+    border:2px solid yellow;
+    border-left: none;
+    color:yellow;
+}
+
+
+
+h1
+{
+    font-size: 2em;
+    text-align: center;
+}
+
+
+.heros
+{
+    grid-row: 1;
+    grid-column: 1;
+    border:2px solid yellow;
+    color:yellow;
+   
+}
+
+.planets
+{
+    grid-row: 1;
+    grid-column: 2;
+    border:2px solid yellow;
+    border-left: none;
+    color:yellow;
+}
