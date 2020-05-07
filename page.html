@@ -3,28 +3,30 @@
     <head>
         <title>Scrapper - Labration 2</title>
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <script src="ShowHideEl.js"></script>
+        <script src="FetchData.js"></script>
     </head>
     <body>
         <div class = "container">
-            <button id ="button1" type ="button" name = "button">Show Favorites</button>
-            <button id ="button2" type ="button2" name = "button2">Fetch SWAPI Data</button>
+            <button id ="showFave" type ="button" name = "show Fave Button">Show Favorites</button>
+            <button id ="fetchData" type ="button" name = "Fetch Data Button">Fetch SWAPI Data</button>
             <aside class ="heros">
                 <h1>Data Fetched</h1>
-                <ul id="names"></ul>
+                <ul class="fetched"></ul>
             </aside>
-            <button id ="button3" type ="button" name = "button">Back To Fetch Data</button>
+            <button id ="backToFetch" type ="button" name = "Back To Fetch Data Button">Back To Fetch Data</button>
            <aside class ="favorites">
                <h1>Favorites</h1>
                <ul id="faves">
-                   <li>Luke Skywalker - Tatooien</li>
-                   <li>Darth Vader - Fortress Vader</li>
-                   <li>C-3PO - Tatooine</li>
-                   <li>Han Solo - Corellia</li>
+                   <li><h3>Luke Skywalker</h3>
+                    Heigh: 172 cm<br>Birth: 19BBY<br>Gender: Male </li>
+                   <li><h3>Darth Vader</h3></li>
+                   <li><h3>C-3PO</h3></li>
+                   <li><h3>Han Solo</h3></li>
                    <li>R2-D2 - Naboo</li>
                    <li>Obi-Wan Kenobi - Stewjon</li>
                </ul>
            </aside>  
-        <script src="script.js"></script>
         </div>
     </body>
 </html> 

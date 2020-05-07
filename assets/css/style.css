@@ -1,7 +1,6 @@
 body
 {
     background-image: url(../img/background.jpg);
-  
     background-position: fixed;
     image-rendering: smooth;
     overflow: auto;
@@ -31,21 +30,11 @@ h1
     text-align: center;
 }
 
-ul
-{
-    list-style-type: none;
-}
 
-li
-{
-    text-align: center;
-}
 
 .heros
 {
     display: block;
-    grid-row: 1;
-    grid-column: 1;
     color:yellow;
    
 }
