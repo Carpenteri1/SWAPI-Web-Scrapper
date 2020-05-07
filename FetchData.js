@@ -1,50 +1,44 @@
+ 
 
-  const url = 'https://swapi.dev/api/people/';
-  window.addEventListener('load', () => { 
-  fetchingData();
+  const url = 'https://swapi.dev/api/people/?page=';
+  let pageNum = 1;
+  window.addEventListener('load',async () => { 
+      
+   await fetchingData();
 })
 
 async function fetchingData()
 {
-
   const options = 
   {
     method: 'GET'
   }
 
-  let page ='?page=';
-  let pageNum = 1;
-
   const buttonTwo = document.getElementById('fetchData');
   buttonTwo.addEventListener('click', async () => {
-    const response = await fetch(url+page+pageNum,options);
-    const heroData = await response.json();
-    
-    let listOfHeros = document.querySelector('.fetched')
-    let test = heroData.results.map(heroToDom)
-    .forEach(element => {
-      listOfHeros.appendChild(element);
-    })
+    for(pageNum;pageNum<=9;pageNum++)
+    {
+      const response = await fetch(url+pageNum,options);
+      const heroData = await response.json();
+      let listOfHeros = document.querySelector('.fetched')
+      let elements = heroData.results.map(heroToDom)
+      .forEach(element => {
+        listOfHeros.appendChild(element);
+      }) 
+    }
 })
-  if(pageNum < 2)
-  {
-    pageNum++;
-    fetchingData;
-  }
 }
 
-
-function heroToDom(hero)
+  function heroToDom(hero)
 {
- 
   let el = document.createElement('li');
   let heading = document.createElement('h3');
   heading.innerText = hero.name;
   el.appendChild(heading);
 
   let content = document.createElement('span');
-  content.innerText = `Height: ${hero.height} 
-  Birth: ${hero.birth_year} \nGender: ${hero.gender}`;
+  content.innerText = `Height: ${hero.height}cm 
+  Birth-Year: ${hero.birth_year} \nGender: ${hero.gender}`;
   el.appendChild(content);
   return el;
 }
