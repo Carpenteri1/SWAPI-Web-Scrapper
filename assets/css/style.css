@@ -25,6 +25,7 @@ body
 ol
 {
     color:yellow;
+    list-style-type: none;
 }
 
 h1
@@ -32,7 +33,6 @@ h1
     font-size: 2em;
     text-align: center;
 }
-
 
 
 .heros

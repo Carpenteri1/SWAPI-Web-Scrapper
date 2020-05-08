@@ -1,46 +1,66 @@
  
 
   const url = 'https://swapi.dev/api/people/?page=';
+  
   let pageNum = 1;
-  window.addEventListener('load',async () => { 
-      
-   await fetchingData();
+  let userInput = undefined;
+
+  window.addEventListener('load', () => { 
+
+  const buttonTwo = document.getElementById('fetchData');
+  const buttonFour = document.getElementById('AddToFave');
+  buttonFour.addEventListener('click',AddFavorite);
+  buttonTwo.addEventListener('click',fetchingData);
+
 })
 
 async function fetchingData()
 {
+  heroRemoveFromDom();
   const options = 
   {
     method: 'GET'
   }
-
-  const buttonTwo = document.getElementById('fetchData');
-  buttonTwo.addEventListener('click', async () => {
     for(pageNum;pageNum<=9;pageNum++)
     {
       const response = await fetch(url+pageNum,options);
       const heroData = await response.json();
-      let listOfHeros = document.querySelector('.fetched')
-      let elements = heroData.results.map(heroToDom)
+      const listOfHeros = document.querySelector('.fetched')
+      elements = heroData.results.map(heroToDomAdd)
       .forEach(element => {
-        listOfHeros.appendChild(element);
-      }) 
+        
+          listOfHeros.appendChild(element);
+        
+      })
     }
-})
 }
 
-  function heroToDom(hero)
-{
-  let el = document.createElement('li');
-  let heading = document.createElement('h3');
-  heading.innerText = hero.name;
-  el.appendChild(heading);
 
-  let content = document.createElement('span');
-  content.innerText = `Height: ${hero.height}cm 
-  Birth-Year: ${hero.birth_year} \nGender: ${hero.gender}`;
-  el.appendChild(content);
-  return el;
+function heroRemoveFromDom()
+{
+  listOfHeros = document.querySelector('.fetched')
+  if(listOfHeros.firstChild != null)
+  {
+    listOfHeros.removeChild(listOfHeros.firstChild);
+  }
+    
+}
+
+  function heroToDomAdd(hero)
+{
+    listOfHeros = document.querySelector('.fetched')
+    let content = document.createElement('p');
+    content.id = "textElement";
+    userInput = document.getElementById("SearchBar").value;
+
+    if(hero.name == userInput)
+    {
+    //heading.innerText = "Found:";
+    content.innerText = `Name: ${hero.name} \nHeight: ${hero.height}cm 
+    Birth-Year: ${hero.birth_year} \nGender: ${hero.gender}`;
+    listOfHeros.appendChild(content);
+    return listOfHeros;
+    }
 }
 
 
@@ -48,17 +68,13 @@ async function fetchingData()
 
 function AddFavorite()
 {
-if(typeof names)
-{
-  let child = document.createElement("li");
-  child.append(worlds.firstChild);
-  favoriteHero.append(child);
-}
-if(typeof worlds)
-{
-  let child = document.createElement("li");
-  child.append(names.ch);
-  favoriteWorld.append(child)
-}
+  listOfHeros = document.querySelector('.fetched');
+  listOfFaves = document.querySelector('.favorites');
 
+  if(listOfHeros != null)
+  {
+    let el = document.createElement('li');
+    el.append(listOfHeros.firstChild);
+    listOfFaves.append(el);
+  }
 }

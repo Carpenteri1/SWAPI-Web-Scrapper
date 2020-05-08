@@ -8,24 +8,23 @@
     </head>
     <body>
         <div class = "container">
-            <button id ="showFave" type ="button" name = "show Fave Button">Show Favorites</button>
-            <button id ="fetchData" type ="button" name = "Fetch Data Button">Fetch SWAPI Data</button>
+            <button id ="showFave" type ="button" name = "Show Fave Button">Show Favorites</button>
+
+            <form>
+                <label for ="Search">Search For Hero</label><br>
+                <input type="text" id="SearchBar" name="SearchBar" placeholder="Enter hero name...">
+            </form>
+            <button id ="fetchData" type ="button" name = "Fetch Data Button">Search</button>
+            <button id="AddToFave" type="button" name="Add to Favorite">Add To Favorite</button>
             <aside class ="heros">
                 <h1>Data Fetched</h1>
-                <ol class="fetched"></ol>
+                <div class="fetched">
+                </div>
             </aside>
             <button id ="backToFetch" type ="button" name = "Back To Fetch Data Button">Back To Fetch Data</button>
            <aside class ="favorites">
                <h1>Favorites</h1>
-               <ul id="faves">
-                   <li><h3>Luke Skywalker</h3>
-                    Heigh: 172 cm<br>Birth: 19BBY<br>Gender: Male </li>
-                   <li><h3>Darth Vader</h3></li>
-                   <li><h3>C-3PO</h3></li>
-                   <li><h3>Han Solo</h3></li>
-                   <li>R2-D2 - Naboo</li>
-                   <li>Obi-Wan Kenobi - Stewjon</li>
-               </ul>
+               <ul id="faves"></ul>
            </aside>  
         </div>
     </body>
