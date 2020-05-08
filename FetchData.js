@@ -29,8 +29,10 @@ async function fetchingData()
       elements = heroData.results.map(heroToDomAdd)
       .forEach(element => {
         
+        if(element != undefined)
+        {
           listOfHeros.appendChild(element);
-        
+        }
       })
     }
 }
