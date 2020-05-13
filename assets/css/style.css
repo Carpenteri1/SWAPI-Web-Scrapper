@@ -4,29 +4,135 @@ body
     background-position: fixed;
     image-rendering: smooth;
     overflow: auto;
+    font-family: 'Star Jedi', arial;
 }
 
-.container > #button3
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+header
+{
+    color: yellow;
+    text-align: center;
+    height: 8%;
+    width: 100%;
+    background-color: black;
+    border:2px solid black;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+}
+
+.left
+{       
+    opacity: 0%;
+    border: 2px solid orange;
+    order:1;
+    flex:1;
+}
+
+
+.container
+{   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;   
+    overflow: auto; 
+    height: 100vh;  
+}
+
+#textElementError
+{
+    margin-top: 10em;
+    color:red;
+}
+
+.right
+{   
+  
+    color: yellow;
+    order:3;
+    flex:1;
+
+}
+
+
+
+.rules > li
+{
+    padding: 2em;
+    background-color: transparent;
+    list-style-type:square;
+    border:transparent;
+    cursor: default;
+}
+
+footer
+{
+    order: 4;
+    height: 8%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Star Jedi', arial;
+}
+
+
+.heros
+{
+    height: 68vh;
+    overflow: auto;
+    margin: auto;
+    width: 80vh;
+    text-align: center;
+    border-left:2px solid goldenrod;
+    border-top:2px solid goldenrod;
+    border-right:2px solid goldenrod;
+    border-bottom: 2px solid black;
+    /*display: block;*/  
+    opacity: 85%;
+    color:yellow;
+    border-top-left-radius: 1%;
+    border-top-right-radius: 1%;
+    background-color: gray;
+}
+
+.buttons > #backToFetch
 {
     display: none;
+ 
 }
 
-.container 
+.main 
 {
     font-size: 1.5em;
+    order:3;
+    flex: 1;
 }
 
 .favorites
 {
     display: none;
+    opacity: 80%;
+    height: 68vh;
+    overflow: auto;
+    margin: auto;
+    width: 80vh;
+    text-align: center;
+    border-left:2px solid goldenrod;
+    border-top:2px solid goldenrod;
+    border-right:2px solid goldenrod;
+    border-bottom: 2px solid black;
     color:yellow;
+    border-top-left-radius: 1%;
+    border-top-right-radius: 1%;
+    background-color: gray;
+    text-align: center;
 }
 
-ol
-{
-    color:yellow;
-    list-style-type: none;
-}
 
 h1
 {
@@ -34,11 +140,76 @@ h1
     text-align: center;
 }
 
-
-.heros
+form
 {
-    display: block;
+    align-items: center;
+    text-align: center;
     color:yellow;
-   
 }
 
+
+button
+{
+    border:2px solid black;
+    border-radius: 8%;
+    width: 20%;
+    height: 3vh;
+    font-size: 0.3em;
+    cursor: pointer;
+    font-family: 'Star Jedi', arial;
+}
+
+
+
+#SearchBar
+{
+    font-family: 'Star Jedi', arial;
+    border:2px solid black;
+    border-radius: 4%;
+}
+
+li
+{
+    font-size: 0.6em;
+    border:2px solid black; 
+    background-color: lightgray;
+    border-radius: 2%;
+    width: 60%;
+    margin: auto;
+    cursor: pointer;
+}
+
+button:hover
+{
+    font-size: 0.4em;
+    transition: 0.5s;
+}
+
+li:hover
+{
+    font-size: 0.7em;
+    transition: 0.5s;
+}
+ul
+{
+    list-style-type: none;
+}
+
+
+.buttons
+{
+    border-left:2px solid goldenrod;
+    border-bottom:2px solid goldenrod;
+    border-right:2px solid goldenrod;
+    background-color: grey;
+    opacity: 85%;
+
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+   
+
+    width: 80vh;
+    margin: auto;
+    text-align: center;
+    
+}

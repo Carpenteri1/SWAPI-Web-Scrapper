@@ -3,29 +3,56 @@
     <head>
         <title>Scrapper - Labration 2</title>
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link href="http://allfont.net/allfont.css?fonts=star-jedi" rel="stylesheet" type="text/css" />
         <script src="ShowHideEl.js"></script>
         <script src="FetchData.js"></script>
+        
     </head>
     <body>
-        <div class = "container">
-            <button id ="showFave" type ="button" name = "Show Fave Button">Show Favorites</button>
+        <div class="container">
+            <header>
+                <h1 class ="fetchTitle">Fetched Data</h1>
+                <h1 class ="FaveTitle">Favorites</h1>
+            </header>
 
-            <form>
-                <label for ="Search">Search For Hero</label><br>
-                <input type="text" id="SearchBar" name="SearchBar" placeholder="Enter hero name...">
-            </form>
-            <button id ="fetchData" type ="button" name = "Fetch Data Button">Search</button>
-            <button id="AddToFave" type="button" name="Add to Favorite">Add To Favorite</button>
-            <aside class ="heros">
-                <h1>Data Fetched</h1>
-                <div class="fetched">
+            <aside class="left"></aside>
+            <main class = "main">
+                <div class ="heros">
+                    <ul class="fetched">
+                    </ul>
                 </div>
-            </aside>
-            <button id ="backToFetch" type ="button" name = "Back To Fetch Data Button">Back To Fetch Data</button>
-           <aside class ="favorites">
-               <h1>Favorites</h1>
-               <ul id="faves"></ul>
-           </aside>  
+               <div class ="favorites">
+                   <ul class="faves"><li>Name: Hello</li><li>Name: Hello2</li></ul>
+               </div>
+               <div class ="buttons">
+                <form>
+                    <label class ="label" for ="Search">Search For Hero</label><br>
+                    <input type="text" id="SearchBar" name="SearchBar" placeholder="Enter hero name...">
+                </form>
+                <button id ="backToFetch" type ="button" name = "Back To Fetch Data Button">Back To Fetch Data</button>
+                <button id ="showFave" type ="button" name = "Show Fave Button">Show Favorites</button>
+                <button id ="fetchData" type ="button" name = "Fetch Data Button">Search</button>
+               </div>  
+            </main>
+            <aside class ="right"><h1>How To use:</h1>
+            <ul class="rules"><li>To Seach for a Hero:
+                <p>Enter a name of starwars character <br>
+                    in the field bellow, the field can be found 
+                    <br> bellow the Search for hero title.
+                    <br>Next press the search button.</p>
+                </li>
+                <li>Show Favorite list:
+                    <p>Press the show favorite button</p>
+                </li>
+                <li>Add to Favorites:
+                    <p>Click a hero name in the search result<br>
+                    field to the left. Or press add to favorites button<br>
+                    next to the search field.
+                    </p>
+                </li>
+            </ul></aside>
+            <footer><pre>Labration: 2 <br>Campus Varberg SUT-19</pre></footer>
         </div>
+        
     </body>
 </html> 

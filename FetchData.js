@@ -1,82 +1,124 @@
  
 
-  const url = 'https://swapi.dev/api/people/?page=';
-  
-  let pageNum = 1;
+  const url = 'https://swapi.dev/api/people/?search=';
   let userInput = undefined;
 
   window.addEventListener('load', () => { 
+  errorHandle();
+})
 
+
+function errorHandle()
+{
   const buttonTwo = document.getElementById('fetchData');
   const buttonFour = document.getElementById('AddToFave');
-  buttonFour.addEventListener('click',AddFavorite);
-  buttonTwo.addEventListener('click',fetchingData);
+    try
+    {
+      buttonTwo.addEventListener('click', fetchingData);
+    }catch(e)
+    {
+      console.error(e);
 
-})
+    }finally
+    {
+
+    }
+}
 
 async function fetchingData()
 {
   heroRemoveFromDom();
-  const options = 
+  let userInput = document.getElementById("SearchBar").value;
+  console.log(userInput);
+  if(userInput != "")
   {
-    method: 'GET'
-  }
-    for(pageNum;pageNum<=9;pageNum++)
+    const options = 
     {
-      const response = await fetch(url+pageNum,options);
-      const heroData = await response.json();
-      const listOfHeros = document.querySelector('.fetched')
-      elements = heroData.results.map(heroToDomAdd)
-      .forEach(element => {
-        
-        if(element != undefined)
-        {
-          listOfHeros.appendChild(element);
-        }
-      })
+      method: 'GET'
     }
+     
+        let listOfHeros = document.querySelector('.fetched')
+        const response = await fetch(url+userInput,options);
+        const data = await response.json();
+        data.results.forEach(element => {
+        listOfHeros.append(heroToDomAdd(element));
+      })
+  }else
+  {
+    NoHeroFound("Search Field is Empty\nNo Hero Was Found");
+  }
 }
 
 
 function heroRemoveFromDom()
 {
-  listOfHeros = document.querySelector('.fetched')
-  if(listOfHeros.firstChild != null)
-  {
-    listOfHeros.removeChild(listOfHeros.firstChild);
+  let listOfHeros = document.querySelector('.fetched')
+  while (listOfHeros.lastElementChild) {
+    listOfHeros.removeChild(listOfHeros.lastElementChild);
   }
-    
+ 
+  
 }
+
+
+function NoHeroFound(message)
+{
+  let listOfHeros = document.querySelector('.fetched')
+  let content = document.createElement('p');
+  content.id = "textElementError";
+  content.innerText =`${message}`;
+  listOfHeros.appendChild(content);
+}
+
 
   function heroToDomAdd(hero)
 {
-    listOfHeros = document.querySelector('.fetched')
-    let content = document.createElement('p');
+    let content = document.createElement('li');
     content.id = "textElement";
-    userInput = document.getElementById("SearchBar").value;
-
-    if(hero.name == userInput)
-    {
-    //heading.innerText = "Found:";
     content.innerText = `Name: ${hero.name} \nHeight: ${hero.height}cm 
-    Birth-Year: ${hero.birth_year} \nGender: ${hero.gender}`;
-    listOfHeros.appendChild(content);
-    return listOfHeros;
-    }
+    Birth-Year: ${hero.birth_year} \nGender: ${hero.gender}\n\n`;
+    return content;
+ 
 }
-
-
 
 
 function AddFavorite()
 {
-  listOfHeros = document.querySelector('.fetched');
-  listOfFaves = document.querySelector('.favorites');
+  let listOfHeros = document.querySelector('.fetched');
+  let userInput = document.getElementById("SearchBar").value;
 
-  if(listOfHeros != null)
+  if(userInput != null)
   {
-    let el = document.createElement('li');
-    el.append(listOfHeros.firstChild);
-    listOfFaves.append(el);
+    if(AlreadyInFaveList(userInput)==false)
+    {
+      let el = document.createElement('li');
+      el.appendChild(listOfHeros.firstChild);
+      let listOfFaves = document.querySelector('.faves').appendChild(el);
+    }else if(userInput === "")
+    {
+      heroRemoveFromDom();
+      NoHeroFound("Cant add if there is no search result")
+    }else
+    {
+      heroRemoveFromDom();
+      NoHeroFound("Cant add "+userInput+" again!\n"+
+        "already in favorites")
+    }
   }
+}
+
+function AlreadyInFaveList(userInput)
+{
+  let listOfFaves = document.querySelector('.faves') 
+  let nameExcist = false;
+  for(i = 0;i<listOfFaves.childNodes.length;i++)
+   {
+     if(listOfFaves.childNodes[i].textContent.includes("Name: "+userInput))
+     { 
+        nameExcist = true;
+     }     
+    }
+   return nameExcist;
+  
+    
 }
