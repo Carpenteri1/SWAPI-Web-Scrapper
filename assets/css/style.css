@@ -3,8 +3,13 @@
  
 @font-face
 {
-    font-family: "starwars";
+    font-family: "swtff";
     src:url("./star-wars.ttf");
+} 
+@font-face
+{
+    font-family: "swwoof";
+    src:url("./star-wars.woff");
 } 
 body
 {
@@ -12,7 +17,7 @@ body
     background-position: fixed;
     image-rendering: smooth;
     overflow: auto;
-    font-family: 'starwars','Pathway Gothic One', sans-serif, 'arial';
+    font-family: 'swtff','swwoof', sans-serif, 'arial';
 }
 
 * {
@@ -35,7 +40,7 @@ header
 .left
 {       
     opacity: 0%;
-    border: 2px solid orange;
+    border: 2px solid black;
     order:1;
     flex:1;
 }
@@ -82,7 +87,7 @@ footer
     width: 100%;
     background-color: black;
     color: white;
-    font-family: 'starwars','Pathway Gothic One', sans-serif, 'arial';
+    font-family: 'swtff','swwoof', sans-serif, 'arial';
 }
 
 
@@ -159,13 +164,15 @@ button
     height: 3vh;
     font-size: 0.6em;
     cursor: pointer;
-    font-family: 'starwars','Pathway Gothic One', sans-serif, 'arial';}
+    font-family: 'swtff','swwoof', sans-serif, 'arial';
+}
 
 
 
 #SearchBar
 {
-    font-family: 'starwars','Pathway Gothic One', sans-serif, 'arial';    border:2px solid black;
+    font-family: 'swtff','swwoof', sans-serif, 'arial';
+    border:2px solid black;
     border-radius: 4%;
 }
 
