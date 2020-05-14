@@ -1,12 +1,18 @@
 
   
+ 
+@font-face
+{
+    font-family: "starwars";
+    src:url("./star-wars.ttf");
+} 
 body
 {
     background-image: url(../img/background.jpg);
     background-position: fixed;
     image-rendering: smooth;
     overflow: auto;
-    font-family: 'Pathway Gothic One', sans-serif, 'arial';
+    font-family: 'starwars','Pathway Gothic One', sans-serif, 'arial';
 }
 
 * {
@@ -73,11 +79,10 @@ header
 footer
 {
     order: 4;
-  
     width: 100%;
     background-color: black;
     color: white;
-    font-family: 'Pathway Gothic One', sans-serif, 'arial';
+    font-family: 'starwars','Pathway Gothic One', sans-serif, 'arial';
 }
 
 
@@ -92,7 +97,6 @@ footer
     border-top:2px solid goldenrod;
     border-right:2px solid goldenrod;
     border-bottom: 2px solid black;
-    /*display: block;*/  
     opacity: 85%;
     color:yellow;
     border-top-left-radius: 1%;
@@ -103,7 +107,6 @@ footer
 .buttons > #backToFetch
 {
     display: none;
- 
 }
 
 .main 
@@ -154,23 +157,21 @@ button
     border-radius: 8%;
     width: 20%;
     height: 3vh;
-    font-size: 0.3em;
+    font-size: 0.6em;
     cursor: pointer;
-    font-family: 'Pathway Gothic One', sans-serif, 'arial';
-}
+    font-family: 'starwars','Pathway Gothic One', sans-serif, 'arial';}
 
 
 
 #SearchBar
 {
-    font-family: 'Pathway Gothic One', sans-serif, 'arial';
-    border:2px solid black;
+    font-family: 'starwars','Pathway Gothic One', sans-serif, 'arial';    border:2px solid black;
     border-radius: 4%;
 }
 
 li
 {
-    font-size: 0.6em;
+    font-size: 1em;
     border:2px solid black; 
     background-color: lightgray;
     border-radius: 2%;
@@ -181,13 +182,13 @@ li
 
 button:hover
 {
-    font-size: 0.4em;
+    font-size: 0.7em;
     transition: 0.5s;
 }
 
 li:hover
 {
-    font-size: 0.7em;
+    font-size: 1.2em;
     transition: 0.5s;
 }
 ul
