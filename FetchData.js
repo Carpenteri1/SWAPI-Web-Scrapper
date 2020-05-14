@@ -4,32 +4,17 @@
   let userInput = undefined;
 
   window.addEventListener('load', () => { 
-  errorHandle();
+  MainFunction();
 })
 
 
-function errorHandle()
+function MainFunction()
 {
   const buttonTwo = document.getElementById('fetchData');
-  let lis = document.querySelector(".fetched");
-      lis.addEventListener('click',function(e){
-        AddFavorite(e.target.innerText);
-        
-        /*if(e.path != undefined)
-        {//only works in chrome
-          AddFavorite(e.path[0].innerText);
-         }
-        else if(e.originalTarget.innerText != undefined)
-        {//only works in firefox
-          AddFavorite(e.originalTarget.innerText);
-        }else if(e.currentTarget.innerText != undefined)
-        {
-          alert("hey");
-        }*/
-    
-      })
+
     try
     {
+      targetInnerText();
       buttonTwo.addEventListener('click', fetchingData);
     }catch(e)
     {
@@ -39,6 +24,14 @@ function errorHandle()
     {
 
     }
+}
+
+function targetInnerText()
+{
+  let lis = document.querySelector(".fetched");
+      lis.addEventListener('click',function(e){
+          AddFavorite(e.target.innerText);
+      })
 }
 
 async function fetchingData()
@@ -95,44 +88,43 @@ function NoHeroFound(message)
 }
 
 
-function AddFavorite(clicked)
+function AddFavorite(pointerValue)
 {
+  let value = pointerValue.split("\n").join("");
   let listOfHeros = document.querySelector('.fetched');
-  let userInput = document.getElementById("SearchBar").value;
-
-  if(clicked != null)
+  if(value != null)
   {
-    if(!AlreadyInFaveList(clicked))
+    if(!AlreadyInFaveList(value))
     {
     
       let el = document.createElement('li');
-      let clickedValue = document.createTextNode(clicked);
-      el.appendChild(clickedValue);
+      //let newValue = pointerValue.split('').Join(' ');
+      let valueToEl = document.createTextNode(pointerValue);
+      el.appendChild(valueToEl);
       let listOfFaves = document.querySelector('.faves');
       listOfFaves.appendChild(el);
 
-    }else if(clicked === "")
+    }else if(value === "")
     {
       heroRemoveFromDom();
       NoHeroFound("Cant add if there is no search result")
     }else
     {
       heroRemoveFromDom();
-      NoHeroFound("Cant add "+clicked+" again!\n"+
-        "already in favorites")
+      NoHeroFound(pointerValue+"\n"+
+        "Cant add\n already in favorites")
     }
   }
 }
 
-function AlreadyInFaveList(userInput)
+function AlreadyInFaveList(pointerValue)
 {
   let listOfFaves = document.querySelector('.faves') 
-  let nameExcist = false;
   for(i = 0;i<listOfFaves.childNodes.length;i++)
    {
     let child = listOfFaves.childNodes[i].innerText.split("\n").join(""); 
-    let input = userInput.split("\n").join("");
-     if(child === input)
+    //let input = userInput.split("\n").join("");
+     if(child === pointerValue)
      { 
        return true;
      }     

@@ -37,6 +37,11 @@ header
     border-bottom-right-radius: 30%;
 }
 
+.faves > #textElementError
+{
+    pointer-events: none;
+}
+
 .left
 {       
     opacity: 0%;
