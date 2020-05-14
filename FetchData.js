@@ -13,7 +13,20 @@ function errorHandle()
   const buttonTwo = document.getElementById('fetchData');
   let lis = document.querySelector(".fetched");
       lis.addEventListener('click',function(e){
-        AddFavorite(e.path[0].innerText);
+        AddFavorite(e.target.innerText);
+        
+        /*if(e.path != undefined)
+        {//only works in chrome
+          AddFavorite(e.path[0].innerText);
+         }
+        else if(e.originalTarget.innerText != undefined)
+        {//only works in firefox
+          AddFavorite(e.originalTarget.innerText);
+        }else if(e.currentTarget.innerText != undefined)
+        {
+          alert("hey");
+        }*/
+    
       })
     try
     {
@@ -32,7 +45,6 @@ async function fetchingData()
 {
   heroRemoveFromDom();
   let userInput = document.getElementById("SearchBar").value;
-  console.log(userInput);
   if(userInput != "")
   {
     const options = 
