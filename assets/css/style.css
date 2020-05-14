@@ -1,18 +1,18 @@
 
 @font-face{
     font-family: "StarWarsAllFonts";
-    src: url(../assets/css/fonts/star-wars.ttf);
+    src: url(../css/fonts/star-wars.ttf);
 }
 
 @font-face{
     font-family: "SfDistant";
-    src: url(../assets/css/fonts/SfDistantGalaxy-0l3d.ttf);
+    src: url(../css/fonts/SfDistantGalaxy-0l3d.ttf);
 }
 
 
 @font-face{
     font-family: "SfDistantAlternate";
-    src: url(../assets/css/fonts/SfDistantGalaxyAlternate.ttf);
+    src: url(../css/fonts/SfDistantGalaxyAlternate.ttf);
 }
   
 body
