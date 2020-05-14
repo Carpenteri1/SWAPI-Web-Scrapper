@@ -11,14 +11,17 @@
 function errorHandle()
 {
   const buttonTwo = document.getElementById('fetchData');
-  const buttonFour = document.getElementById('AddToFave');
+  let lis = document.querySelector(".fetched");
+      lis.addEventListener('click',function(e){
+        AddFavorite(e.path[0].innerText);
+      })
     try
     {
       buttonTwo.addEventListener('click', fetchingData);
     }catch(e)
     {
       console.error(e);
-
+    
     }finally
     {
 
@@ -56,8 +59,7 @@ function heroRemoveFromDom()
   while (listOfHeros.lastElementChild) {
     listOfHeros.removeChild(listOfHeros.lastElementChild);
   }
- 
-  
+
 }
 
 
@@ -78,30 +80,33 @@ function NoHeroFound(message)
     content.innerText = `Name: ${hero.name} \nHeight: ${hero.height}cm 
     Birth-Year: ${hero.birth_year} \nGender: ${hero.gender}\n\n`;
     return content;
- 
 }
 
 
-function AddFavorite()
+function AddFavorite(clicked)
 {
   let listOfHeros = document.querySelector('.fetched');
   let userInput = document.getElementById("SearchBar").value;
 
-  if(userInput != null)
+  if(clicked != null)
   {
-    if(AlreadyInFaveList(userInput)==false)
+    if(!AlreadyInFaveList(clicked))
     {
+    
       let el = document.createElement('li');
-      el.appendChild(listOfHeros.firstChild);
-      let listOfFaves = document.querySelector('.faves').appendChild(el);
-    }else if(userInput === "")
+      let clickedValue = document.createTextNode(clicked);
+      el.appendChild(clickedValue);
+      let listOfFaves = document.querySelector('.faves');
+      listOfFaves.appendChild(el);
+
+    }else if(clicked === "")
     {
       heroRemoveFromDom();
       NoHeroFound("Cant add if there is no search result")
     }else
     {
       heroRemoveFromDom();
-      NoHeroFound("Cant add "+userInput+" again!\n"+
+      NoHeroFound("Cant add "+clicked+" again!\n"+
         "already in favorites")
     }
   }
@@ -113,12 +118,12 @@ function AlreadyInFaveList(userInput)
   let nameExcist = false;
   for(i = 0;i<listOfFaves.childNodes.length;i++)
    {
-     if(listOfFaves.childNodes[i].textContent.includes("Name: "+userInput))
+    let child = listOfFaves.childNodes[i].innerText.split("\n").join(""); 
+    let input = userInput.split("\n").join("");
+     if(child === input)
      { 
-        nameExcist = true;
+       return true;
      }     
     }
-   return nameExcist;
-  
-    
+   return false;
 }

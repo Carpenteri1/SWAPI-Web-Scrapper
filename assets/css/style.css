@@ -75,6 +75,7 @@ header
 .rules > li
 {
     padding: 2em;
+    font-size: 0.8em;
     background-color: transparent;
     list-style-type:square;
     border:transparent;
@@ -106,7 +107,7 @@ footer
     color:yellow;
     border-top-left-radius: 1%;
     border-top-right-radius: 1%;
-    background-color: gray;
+    background-color: black;
 }
 
 .buttons > #backToFetch
@@ -116,7 +117,7 @@ footer
 
 .main 
 {
-    font-size: 1.5em;
+    font-size: 1em;
     order:3;
     flex: 1;
 }
@@ -137,7 +138,7 @@ footer
     color:yellow;
     border-top-left-radius: 1%;
     border-top-right-radius: 1%;
-    background-color: gray;
+    background-color: black;
     text-align: center;
 }
 
@@ -193,7 +194,7 @@ button:hover
     transition: 0.5s;
 }
 
-li:hover
+.fetched > li:hover,.faves > li:hover
 {
     font-size: 1.2em;
     transition: 0.5s;
@@ -206,9 +207,7 @@ ul
 
 .buttons
 {
-    border-left:2px solid goldenrod;
-    border-bottom:2px solid goldenrod;
-    border-right:2px solid goldenrod;
+   border:2px solid gold;
     background-color: grey;
     opacity: 85%;
 

@@ -33,7 +33,7 @@ function showFavorites()
   document.querySelector('#fetchData').style.display="none";
   document.querySelector('#backToFetch').style.display='inline';
   document.querySelector('#SearchBar').style.display='none';
-  document.querySelector('#AddToFave').style.display='none';
+  
   document.querySelector('.FaveTitle').style.display='block';
   document.querySelector('.fetchTitle').style.display='none';
 }
