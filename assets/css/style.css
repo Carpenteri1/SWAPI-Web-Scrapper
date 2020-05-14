@@ -1,7 +1,12 @@
-
+/*
 @font-face{
     font-family: "StarWarsAllFonts";
     src: url('/star-wars.ttf');
+}*/
+
+@font-face{
+    font-family: "SfDistant";
+    src: url(/SfDistantGalaxy-0l3d.tff);
 }
   
 body
@@ -10,7 +15,7 @@ body
     background-position: fixed;
     image-rendering: smooth;
     overflow: auto;
-    font-family: 'StarWarsAllFonts', arial;
+    font-family: 'StarWarsAllFonts','SfDistant', arial;
 }
 
 * {
@@ -81,7 +86,7 @@ footer
     width: 100%;
     background-color: black;
     color: white;
-    font-family: 'StarWarsAllFonts', arial;
+    font-family: 'StarWarsAllFonts','SfDistant', arial;
 }
 
 
@@ -160,14 +165,14 @@ button
     height: 3vh;
     font-size: 0.3em;
     cursor: pointer;
-    font-family: 'StarWarsAllFonts', arial;
+    font-family: 'StarWarsAllFonts','SfDistant', arial;
 }
 
 
 
 #SearchBar
 {
-    font-family: 'StarWarsAllFonts', arial;
+    font-family: 'StarWarsAllFonts','SfDistant', arial;
     border:2px solid black;
     border-radius: 4%;
 }
